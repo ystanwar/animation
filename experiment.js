@@ -6,7 +6,8 @@ var mySceneW;          /* Scene Width */
 var mySceneH;          /* Scene Height */
 var myCenterX;         /* Scene Center X coordinate */
 var myCenterY;
-
+var backB=50.0;
+var wallThickness; 
 
 var radius;
 var cylinder;
@@ -31,6 +32,7 @@ function initialiseScene()
     mySceneH   = (mySceneTLY - mySceneBRY);
     myCenterX  = (mySceneTLX + mySceneBRX) / 2.0;
     myCenterY  = (mySceneTLY + mySceneBRY) / 2.0;
+	wallThickness = 0.20;
     
 }
 function handleRadius(newValue)
@@ -88,7 +90,7 @@ var material
 var line;
 var yMaterial;
 radius=1.0;
-
+var myBack;
 var step=1;
 var rad;
 var path;
@@ -97,7 +99,20 @@ PIEsetExperimentTitle("Area Of Circle");
 PIEsetDeveloperName("yuvraj singh tanwar"); 
 PIEhideControlElement();
 				initialiseScene();
-			               
+						
+						geometry = new THREE.BoxGeometry( mySceneW * 2, mySceneH * 2, wallThickness );
+						material = new THREE.MeshBasicMaterial( {color:'yellow'} );
+						myBack = new THREE.Mesh( geometry, material );
+						myBack.position.set(myCenterX, myCenterY, backB - (wallThickness / 2));
+						myBack.receiveShadow = true;
+						PIEaddElement(myBack);
+
+
+
+
+
+
+				 
 
                 geometry = new THREE.Geometry();
                 material = new THREE.LineBasicMaterial({color: 'blue',linewidth:5});   
@@ -117,7 +132,7 @@ PIEhideControlElement();
                 line = new THREE.Line( geometry, material, THREE.LinePieces);
                 PIEaddElement(line);
 				cgeometry = new THREE.CylinderGeometry( radius, radius, 0.5, 32 );
-				yMaterial = new THREE.MeshBasicMaterial( { color: 'yellow', transparent: true, opacity: 0.5} );
+				yMaterial = new THREE.MeshBasicMaterial( { color: 'red', transparent: true, opacity: 0.5} );
 				//cgeometry = new THREE.CircleGeometry( radius, 32);
 				cylinder = new THREE.Mesh( cgeometry, yMaterial );
 				cylinder.rotation.x += Math.PI/2;
