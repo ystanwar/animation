@@ -1,0 +1,107 @@
+<html>
+    <body>
+        <script src="PIE/three.min.js"></script>
+
+        <script>
+            var camera, scene, renderer;
+			clock = new THREE.Clock();
+            init();
+
+            function init(){
+				
+                scene = new THREE.Scene();
+				scene.background = new THREE.Color( 'white');
+                camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 10000);
+                camera.position.set(0,0,30);
+                camera.lookAt(scene.position); 
+				
+                renderer = new THREE.WebGLRenderer();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+				
+                document.body.appendChild(renderer.domElement);
+				
+    
+                var size = 10, step = 1;
+
+                var geometry = new THREE.Geometry();
+                var material = new THREE.LineBasicMaterial({color: 'blue',linewidth:5});   
+
+                for ( var i = - size; i <= size; i += step){
+                    geometry.vertices.push(new THREE.Vector3( - size,  i,0 ));
+                    geometry.vertices.push(new THREE.Vector3( size,  i ,0));
+   
+                    geometry.vertices.push(new THREE.Vector3( i,  - size ,0));
+                    geometry.vertices.push(new THREE.Vector3( i,  size ,0));
+
+                }
+
+                var line = new THREE.Line( geometry, material, THREE.LinePieces);
+                scene.add(line);
+				
+				//geometry = new THREE.CircleGeometry( 2, 32);
+				//material = new  THREE.LineBasicMaterial( { color: 0x0000ff } );
+				var yMaterial = new THREE.MeshBasicMaterial( { color: 'yellow', transparent: true, opacity: 0.5} );
+				
+				
+				
+				
+				var radius=4;
+				
+				//var circle = new THREE.Mesh( geometry,blueMaterial );
+				//scene.add( circle );
+				var cgeometry = new THREE.CylinderGeometry( radius, radius, 0.5, 32 );
+				
+				
+				var cylinder = new THREE.Mesh( cgeometry, yMaterial );
+				cylinder.rotation.x += Math.PI/2;
+				scene.add( cylinder );
+				
+                
+				
+				var curve = new THREE.EllipseCurve(
+				0,  0,            // ax, aY
+				radius, radius,           // xRadius, yRadius
+				0,  2 * Math.PI,  // aStartAngle, aEndAngle
+				false,            // aClockwise
+				0                 // aRotation
+				);
+
+				var path = new THREE.Path( curve.getPoints( 50 ) );
+				var geometry = path.createPointsGeometry( 50 );
+				var material = new THREE.LineBasicMaterial( { color : 0xff0000 } );
+
+				
+				
+				
+				
+				
+				// Create the final object to add to the scene
+				var ellipse = new THREE.Line( geometry, material );
+				scene.add(ellipse);
+				
+				var rad = new THREE.Geometry();
+				rad.vertices.push(new THREE.Vector3(0, 0, 0));
+				rad.vertices.push(new THREE.Vector3(radius, 0, 0));
+				var line1 = new THREE.Line(rad, material);
+				scene.add(line1);
+				var render= function () {
+				requestAnimationFrame( render );
+				//circle.material.opacity = 0.5 * (1 + Math.sin( clock.getElapsedTime() ) );
+				//cylinder.rotation.y +=0.1 ;
+				var timer = Date.now() * 0.0001;
+				line1.rotation.z=+Math.cos( timer ) * 10;
+				//camera.position.x = Math.cos( timer ) * 10;
+			    //camera.position.z = Math.sin( timer ) * 30;
+				camera.lookAt( scene.position );
+                renderer.render( scene, camera );
+
+            };
+			
+			render();
+            }
+
+			
+			
+        </script>
+    </body>
+</html>
