@@ -4,6 +4,45 @@
     <title>Experiment Title</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=yes, , initial-scale=1">
+	<style>
+	#info{
+	position:absolute;
+	color:white;
+	top:30px;
+	margin-right=500px;
+
+	}
+	.info1{
+	position:absolute;
+	margin-left:30px;
+	color:white;
+    border:2px solid yellow;
+	top:350px;
+	}
+	.info2{
+	position:absolute;
+	margin-left:80%;
+	border:2px solid yellow;
+	color:white;
+    
+	top:370px;
+	}
+	.info3{
+	position:absolute;
+	margin-left:30px;
+	border:2px solid yellow;
+	color:white;
+   
+	top:390px;
+	}
+	.info4{
+	position:absolute;
+	color:white;
+    margin-left:30px;
+	border:2px solid yellow;
+	top:410px;
+	}
+	</style>
 </head>
 <body onload="loadExperiment()">
     <!--- Three JS library --->
@@ -29,5 +68,21 @@
 
     <!--- The Experiment Code --->
     <script src="experiment.js"></script>
+	
+	<html>
+	<p id="info">1.Choose radius from controls<br>2.Each square signifies area of 1cm<sup>2</sup>.<br>
+	3.To calculate area of circle we will see number<br>of squares filled by circle.
+	<br>4.Ignore portions of the area that are less than half<br> a square.
+	<br>5.If more than half of a square is in a region, just <br>count it as one square.
+	<br>6. If exactly half the square is counted, take its area<br> as 1/2sq unit.
+	<br>7.The rotating line and the yellow region gives the area<br> covered by the circle.
+	</p>
+	
+	<p class="info1">Full square = </p>
+	<p class="info2">&lt Half square = </p>
+	<p class="info3">Half square = </p>
+	<p class="info4">&gt Half square = </p>
+	
+	</html>
 </body>
 </html>

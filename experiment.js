@@ -64,6 +64,9 @@ function initialiseControls()
 {
     initialiseControlVariables();
     /* Create Input Panel */
+	var message="choose radius from below";
+	var label="radius";
+	PIEaddDisplayText(label,message);
     PIEaddInputSlider(RadiusCy, RadiusCdefault, handleRadius, RadiusCmin, RadiusCmax, RadiusCStep);
     
     /* Create Display Panel */
