@@ -90,8 +90,8 @@
 				//cylinder.rotation.y +=0.1 ;
 				var timer = Date.now() * 0.0001;
 				line1.rotation.z=+Math.cos( timer ) * 10;
-				//camera.position.x = Math.cos( timer ) * 10;
-			    //camera.position.z = Math.sin( timer ) * 30;
+				camera.position.x = Math.cos( timer ) * 10;
+			    camera.position.z = Math.sin( timer ) * 30;
 				camera.lookAt( scene.position );
                 renderer.render( scene, camera );
 
