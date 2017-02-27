@@ -54,7 +54,7 @@ function handleRadius(newValue)
 function initialiseControlVariables()
 {
 RadiusCy="RadiusC";
-RadiusCdefault=0.0;
+RadiusCdefault=1.0;
 RadiusCmin=0.0;
 RadiusCmax=10.0;
 RadiusCStep=1.0;
@@ -191,7 +191,20 @@ function render(){
                PIErender();
 	
 }
-
+function resetExperiment()
+{
+    /* initialise Other Variables */
+    //initialiseOtherVariables();
+     
+	radius=1;
+	cylinder.scale.x=radius;
+	cylinder.scale.z=radius;
+	ellipse.scale.y=radius;
+	ellipse.scale.x=radius;
+	line1.scale.set( radius, radius, radius);
+    PIErender();
+	 
+}
 //function updateExperimentElements(t, dt)
 //{
 	

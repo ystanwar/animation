@@ -1,2 +1,4 @@
 [0224/173806.094:ERROR:exception_handler_server.cc(524)] ConnectNamedPipe: The pipe is being closed. (0xE8)
 [0224/220238.725:ERROR:exception_handler_server.cc(524)] ConnectNamedPipe: The pipe is being closed. (0xE8)
+[0227/194129.687:ERROR:exception_handler_server.cc(524)] ConnectNamedPipe: The pipe is being closed. (0xE8)
+[0227/213615.258:ERROR:exception_handler_server.cc(524)] ConnectNamedPipe: The pipe is being closed. (0xE8)
