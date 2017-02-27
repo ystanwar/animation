@@ -57,28 +57,30 @@
     <script src="experiment.js"></script>
 	
 	<html>
-	<p id="info">1.Choose radius from controls<br>2.Each square signifies area of 1cm<sup>2</sup>.<br>
-	3.To calculate area of circle we will see number<br>of squares filled by circle.
-	<br>4.Ignore portions of the area that are less than half<br> a square.
-	<br>5.If more than half of a square is in a region, just <br>count it as one square.
-	<br>6. If exactly half the square is counted, take its <br>area as 1/2sq unit.
-	<br>7.The rotating line and the yellow region gives the <br>area covered by the circle.
+	<p id="info">1.Choose radius from controls and then click start<br>2.To change radius click stop than change radius<br> and then click start <br>3.Each square signifies area of 1cm<sup>2</sup>.<br>
+	4.To calculate area of circle we will see number<br>of squares filled by circle.
+	<br>5.Ignore portions of the area that are less than half<br> a square.
+	<br>6.If more than half of a square is in a region, just <br>count it as one square.
+	<br>7. If exactly half the square is counted, take its <br>area as 1/2sq unit.
+	<br>8.The rotating line and the yellow region gives the <br>area covered by the circle.
 	</p>
 	
 	<div class="dim" style="display:block;background-color:white;font-size:15px;padding-left:2%;">
 	<p style="text-align:center;;font-size:20px;margin-left:-5%;" >Change radius from above</p>
+	<p style="text-align:center;margin-left:0%;padding-top:1%;font-size:10px">This is an example</p>
 	<br>
-	<p> Radius: <span id="ra">1</span>cm</p>
+	<p> Radius: <span id="ra"></span>cm</p>
 	<p style="text-align:left;padding-left:-2%;font-style:bold"> <u>Area by counting</u></p>
-	<p> Full Square: <span id="fsquare">0</span></p>
-	<p> > Half Square: <span id="ghsquare">4</span></p>
-	<p> Half Square: <span id="hsquare">0</span></p>	
-	<p> Area: <span id="areaC">4</span> cm<sup>2</sup></p>
-	<br>
-	<p style="text-align:left;padding-left:-2%;font-style:bold"> <u>Area by Formula</u><span> (&pi;r<sup>2</sup>)</span></p>
-	<p> Area: <span id="areaF">3.14</span> cm<sup>2</sup></p>
-	<br>
+	<p> Full Square: <span id="fsquare"></span></p>
+	<p> > Half Square: <span id="ghsquare"></span></p>
+	<p> Half Square: <span id="hsquare"></span></p>	
+	<p> Area: <span id="areaC"></span> cm<sup>2</sup></p>
+	
+	<p style="text-align:left;padding-left:-2%;font-style:bold;padding-top:3%"> <u>Area by Formula</u><span> (&pi;r<sup>2</sup>)</span></p>
+	<p> Area: <span id="areaF"></span> cm<sup>2</sup></p>
 
+	<p style="text-align:center;margin-left:-10%;padding-top:4%">Both Areas are almost equal</p>
+	<p id="res" style="text-align:center;margin-left:-10%;"> </p>
 	</div>
 	</html>
 </body>

@@ -61,7 +61,7 @@ function initialiseControlVariables()
 {
 RadiusCy="RadiusC";
 RadiusCdefault=1.0;
-RadiusCmin=1.0;
+RadiusCmin=0.0;
 RadiusCmax=10.0;
 RadiusCStep=1.0;
          
@@ -218,6 +218,7 @@ function resetExperiment()
     //initialiseOtherVariables();
      
 	radius=1;
+	data();
 	PIEchangeInputSlider(RadiusCy, radius);
 	PIEchangeDisplayText(RadiusCy, radius);
 	//message="radius is reset";
@@ -228,14 +229,127 @@ function resetExperiment()
 }
 function data(){
 	var r=radius;
-    if(r==1){
+    if(r==0){
 		document.getElementById("ra").innerHTML = r;
 		document.getElementById("fsquare").innerHTML = 0;
 		document.getElementById("ghsquare").innerHTML = 0;
 		document.getElementById("hsquare").innerHTML = 0;
-		document.getElementById("areaC").innerHTML = 0;
+		document.getElementById("areaC").innerHTML = "0+0+(0)/2 = "+0;
 		document.getElementById("areaF").innerHTML = "3.14 x 0 x 0 = " + 0;
-}
+		document.getElementById("res").innerHTML = 0+"cm<sup>2</sup> "+ "&asymp; " +0+"cm<sup>2</sup>";
+		
+    }
+	else if(r==1){
+		document.getElementById("ra").innerHTML = r;
+		document.getElementById("fsquare").innerHTML = 0;
+		document.getElementById("ghsquare").innerHTML = 4;
+		document.getElementById("hsquare").innerHTML = 0;
+		document.getElementById("areaC").innerHTML = "0+4+(0)/2 = "+4;
+		document.getElementById("areaF").innerHTML = "3.14 x 1 x 1 = " + 3.14;
+		document.getElementById("res").innerHTML = 4+"cm<sup>2</sup> "+ "&asymp; " +3.14+"cm<sup>2</sup>";
+	
+		
+	}
+	else if(r==2){
+		document.getElementById("ra").innerHTML = r;
+		document.getElementById("fsquare").innerHTML = 4;
+		document.getElementById("ghsquare").innerHTML =8;
+		document.getElementById("hsquare").innerHTML = 0;
+		document.getElementById("areaC").innerHTML = "4+8+(0)/2 = "+12;
+		document.getElementById("areaF").innerHTML = "3.14 x 2 x 2 = " + 12.56;
+		document.getElementById("res").innerHTML = 12+"cm<sup>2</sup> "+ "&asymp; " +12.56+"cm<sup>2</sup>";
+		
+		
+	}
+	else if(r==3){
+		document.getElementById("ra").innerHTML = r;
+		document.getElementById("fsquare").innerHTML = 24;
+		document.getElementById("ghsquare").innerHTML = 0;
+		document.getElementById("hsquare").innerHTML = 8;
+		document.getElementById("areaC").innerHTML = "27+0+(8)/2 = "+28;
+		document.getElementById("areaF").innerHTML = "3.14 x 3 x 3 = " + 28.259;
+		document.getElementById("res").innerHTML = 28+"cm<sup>2</sup> "+ "&asymp; " +28.259+"cm<sup>2</sup>";
+		
+		
+	}
+	else if(r==4){
+		document.getElementById("ra").innerHTML = r;
+		document.getElementById("fsquare").innerHTML = 40;
+		document.getElementById("ghsquare").innerHTML = 12;
+		document.getElementById("hsquare").innerHTML = 0;
+		document.getElementById("areaC").innerHTML = "40+12+(0)/2 = "+52;
+		document.getElementById("areaF").innerHTML = "3.14 x 4 x 4 = " + 50.24;
+		document.getElementById("res").innerHTML = 52+"cm<sup>2</sup> "+ "&asymp; " +50.24+"cm<sup>2</sup>";
+		
+		
+	}
+	else if(r==5){
+		document.getElementById("ra").innerHTML = r;
+		document.getElementById("fsquare").innerHTML = 68;
+		document.getElementById("ghsquare").innerHTML = 8;
+		document.getElementById("hsquare").innerHTML = 4;
+		document.getElementById("areaC").innerHTML = "68+8+(4)/2 = "+80;
+		document.getElementById("areaF").innerHTML = "3.14 x 5 x 5 = " + 78.5;
+		document.getElementById("res").innerHTML = 80+"cm<sup>2</sup> "+ "&asymp; " +78.5+"cm<sup>2</sup>";
+		
+		
+	}
+	else if(r==6){
+		document.getElementById("ra").innerHTML = r;
+		document.getElementById("fsquare").innerHTML = 96;
+		document.getElementById("ghsquare").innerHTML = 16;
+		document.getElementById("hsquare").innerHTML = 8;
+		document.getElementById("areaC").innerHTML = "96+16+(8)/2 = "+116;
+		document.getElementById("areaF").innerHTML = "3.14 x 6 x 6 = " + 113.03;
+		document.getElementById("res").innerHTML = 116+"cm<sup>2</sup> "+ "&asymp; " +113.03+"cm<sup>2</sup>";
+		
+		
+	}
+	else if(r==7){
+		document.getElementById("ra").innerHTML = r;
+		document.getElementById("fsquare").innerHTML = 132;
+		document.getElementById("ghsquare").innerHTML = 16;
+		document.getElementById("hsquare").innerHTML = 16;
+		document.getElementById("areaC").innerHTML = "132+16+(16)/2 = "+156;
+		document.getElementById("areaF").innerHTML = "3.14 x 7 x 7 = " + 153.03;
+		document.getElementById("res").innerHTML = 156+"cm<sup>2</sup> "+ "&asymp; " +153.03+"cm<sup>2</sup>";
+		
+		
+	}
+	else if(r==8){
+		document.getElementById("ra").innerHTML = r;
+		document.getElementById("fsquare").innerHTML = 180;
+		document.getElementById("ghsquare").innerHTML = 28;
+		document.getElementById("hsquare").innerHTML = 0;
+		document.getElementById("areaC").innerHTML = "180+28+(0)/2 = "+208;
+		document.getElementById("areaF").innerHTML = "3.14 x 8 x 8 = " + 200.96;
+		document.getElementById("res").innerHTML = 208+"cm<sup>2</sup> "+ "&asymp; " +200.96+"cm<sup>2</sup>";
+		
+	}
+	else if(r==9){
+		document.getElementById("ra").innerHTML = r;
+		document.getElementById("fsquare").innerHTML = 224;
+		document.getElementById("ghsquare").innerHTML = 16;
+		document.getElementById("hsquare").innerHTML = 0;
+		document.getElementById("areaC").innerHTML = "224+16+(0)/2 = "+240;
+		document.getElementById("areaF").innerHTML = "3.14 x 9 x 9 = " + 254.34;
+		document.getElementById("res").innerHTML = 240+"cm<sup>2</sup> "+ "&asymp; " +254.34+"cm<sup>2</sup>";
+		
+	}
+	else{
+		
+		document.getElementById("ra").innerHTML = r;
+		document.getElementById("fsquare").innerHTML = 284;
+		document.getElementById("ghsquare").innerHTML = 20;
+		document.getElementById("hsquare").innerHTML = 12;
+		document.getElementById("areaC").innerHTML = "284+20+(12)/2 = "+310;
+		document.getElementById("areaF").innerHTML = "3.14 x 10 x 10 = " + 314;
+		document.getElementById("res").innerHTML = 310+"cm<sup>2</sup> "+ "&asymp; " +314+"cm<sup>2</sup>";
+		
+		
+		
+		
+	}
 
 		
 		
