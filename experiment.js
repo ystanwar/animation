@@ -14,6 +14,7 @@ var cylinder;
 var ellipse;
 var cgeometry;
 var curve;
+var line1;
 
 var RadiusCy;	
 var	RadiusCdefault;
@@ -173,7 +174,8 @@ PIEhideControlElement();
 				rad.vertices.push(new THREE.Vector3(radius, 0, 0));
 				line1 = new THREE.Line(rad, material);
 				PIEaddElement(line1);
-				render();
+				var pass=0;
+				//render(pass);
 			    
 			    initialiseControls();
 				resetExperiment();
@@ -183,20 +185,33 @@ PIEhideControlElement();
 
 
 
-function render(){
+function render(rot){
 			requestAnimationFrame( render );
 		
 			//cylinder.rotation.y +=0.1 ;
-				var timer = Date.now() * 0.0001;
+			
 				//cylinder.material.opacity = 0.5 * (1 + Math.sin( timer));
-				line1.rotation.z=+Math.cos( timer ) * 10;
+				
+			
+					//rotate();
+				
+				
+
 				//camera.position.x = Math.cos( timer ) * 10;
 			    //camera.position.z = Math.sin( timer ) * 30;
 				//PIEadjustCamera(Math.cos( timer ) * 10,0, Math.sin( timer ) * 30);
 			
-               PIErender();
+               
 	
 }
+
+function rotate(){
+		var timer = Date.now() * 0.0001;
+		line1.rotation.z=+Math.cos( timer ) * 10;
+		PIErender();
+}
+
+
 function resetExperiment()
 {
     /* initialise Other Variables */
@@ -213,9 +228,15 @@ function resetExperiment()
 }
 function updateExperimentElements(t, dt)
 {
+			
+			
+			scale();
+			var timer = Date.now() * 0.0001;
+			line1.rotation.z=+Math.cos( timer ) * 10;
+			PIErender();
+			PIEchangeDisplayText(RadiusCy, radius);
 	
-	scale();
-	PIEchangeDisplayText(RadiusCy, radius);
+	
 	
 
    //PIEchangeDisplayText(Area, 0);
