@@ -61,7 +61,7 @@ function initialiseControlVariables()
 {
 RadiusCy="RadiusC";
 RadiusCdefault=1.0;
-RadiusCmin=0.0;
+RadiusCmin=1.0;
 RadiusCmax=10.0;
 RadiusCStep=1.0;
          
@@ -226,10 +226,24 @@ function resetExperiment()
 	scale();
 	 
 }
+function data(){
+	var r=radius;
+    if(r==1){
+		document.getElementById("ra").innerHTML = r;
+		document.getElementById("fsquare").innerHTML = 0;
+		document.getElementById("ghsquare").innerHTML = 0;
+		document.getElementById("hsquare").innerHTML = 0;
+		document.getElementById("areaC").innerHTML = 0;
+		document.getElementById("areaF").innerHTML = "3.14 x 0 x 0 = " + 0;
+}
+
+		
+		
+	}	
 function updateExperimentElements(t, dt)
 {
 			
-			
+			data();
 			scale();
 			var timer = Date.now() * 0.0001;
 			line1.rotation.z=+Math.cos( timer ) * 10;
@@ -243,5 +257,9 @@ function updateExperimentElements(t, dt)
   
 	
 }
-   
+	
+
+	
+	
+
    
