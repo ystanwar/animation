@@ -21,6 +21,9 @@ var	RadiusCmin;
 var	RadiusCmax;
 var	RadiusCStep;
 
+var message;
+var label;
+
 function initialiseScene()
 {
     /* Initialise Scene Variables */
@@ -38,19 +41,21 @@ function initialiseScene()
 function handleRadius(newValue)
 {
     radius = newValue;
+
+}
+
+function scale(){
     cylinder.radius=radius;
-    //cylinder.position.set(1,radius,0);
-	//ellipse
-	//cylinder.radiusTop=3.0;
-    //cylinder.radiusBottom=3.0;
 	cylinder.scale.x=radius;
 	cylinder.scale.z=radius;
 	ellipse.scale.y=radius;
 	ellipse.scale.x=radius;
 	line1.scale.set( radius, radius, radius);
-    PIErender();
+	
+    PIErender();	
+	
+	
 }
-
 function initialiseControlVariables()
 {
 RadiusCy="RadiusC";
@@ -66,9 +71,9 @@ function initialiseControls()
 {
     initialiseControlVariables();
     /* Create Input Panel */
-	var message="choose radius from below";
-	var label="radius";
-	PIEaddDisplayText(label,message);
+	//var message="choose radius from below";
+	//var label="radius";
+	//PIEaddDisplayText(label,message);
     PIEaddInputSlider(RadiusCy, RadiusCdefault, handleRadius, RadiusCmin, RadiusCmax, RadiusCStep);
     
     /* Create Display Panel */
@@ -168,9 +173,10 @@ PIEhideControlElement();
 				rad.vertices.push(new THREE.Vector3(radius, 0, 0));
 				line1 = new THREE.Line(rad, material);
 				PIEaddElement(line1);
-				
-			    render();
+				render();
+			    
 			    initialiseControls();
+				resetExperiment();
 				PIEsetAreaOfInterest(mySceneTLX, mySceneTLY, mySceneBRX, mySceneBRY);		
 }		
 
@@ -197,22 +203,24 @@ function resetExperiment()
     //initialiseOtherVariables();
      
 	radius=1;
-	cylinder.scale.x=radius;
-	cylinder.scale.z=radius;
-	ellipse.scale.y=radius;
-	ellipse.scale.x=radius;
-	line1.scale.set( radius, radius, radius);
-    PIErender();
+	PIEchangeInputSlider(RadiusCy, radius);
+	PIEchangeDisplayText(RadiusCy, radius);
+	//message="radius is reset";
+	//label="message";
+	//PIEaddDisplayText(label,message);
+	scale();
 	 
 }
-//function updateExperimentElements(t, dt)
-//{
+function updateExperimentElements(t, dt)
+{
 	
+	scale();
+	PIEchangeDisplayText(RadiusCy, radius);
 	
-	//PIEchangeDisplayText(RadiusCy, radius);
-   // PIEchangeDisplayText(Area, 0);
+
+   //PIEchangeDisplayText(Area, 0);
   
 	
-//}
+}
    
    
