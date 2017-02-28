@@ -218,7 +218,7 @@ PIEhideControlElement();
 				cylinder.castShadow = true;
 				cylinder.receiveShadow = true;
 				PIEaddElement(cylinder);
-				PIEdragElement(cylinder);
+				//PIEdragElement(cylinder);
 				PIEsetCameraAspect(45);
 					
 				curve = new THREE.EllipseCurve(
@@ -302,6 +302,7 @@ function resetExperiment()
 }
 function data(){
 	var r=radius;
+	document.getElementById("init").innerHTML = " ";
     if(r==0){
 		document.getElementById("ra").innerHTML = r;
 		document.getElementById("fsquare").innerHTML = 0;
@@ -313,6 +314,7 @@ function data(){
 		
     }
 	else if(r==1){
+		document.getElementById("init").innerHTML = "This is an example";
 		document.getElementById("ra").innerHTML = r;
 		document.getElementById("fsquare").innerHTML = 0;
 		document.getElementById("ghsquare").innerHTML = 4;
