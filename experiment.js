@@ -59,7 +59,7 @@ function scale(){
 }
 function initialiseControlVariables()
 {
-RadiusCy="RadiusC";
+RadiusCy="Radius";
 RadiusCdefault=1.0;
 RadiusCmin=0.0;
 RadiusCmax=10.0;
@@ -81,6 +81,76 @@ function initialiseControls()
     PIEaddDisplayText(RadiusCy, RadiusCdefault);
     
 }
+
+
+
+
+
+var helpContent;
+function initialiseHelp()
+{
+    helpContent="";
+    helpContent = helpContent + "<h2>Area Of Circle Animation Help</h2>";
+    helpContent = helpContent + "<h3>About the Animation</h3>";
+    helpContent = helpContent + "<p>The animation helps to visualize area of circle practically.</p>";
+    helpContent = helpContent + "<h3>Animation control</h3>";
+    helpContent = helpContent + "<p>The top line has animation controls.</p>";
+    helpContent = helpContent + "<h3>The setup stage</h3>";
+    helpContent = helpContent + "<p>The initial state is setup stage. In this stage, you can see a control window at the right. You have access to one sliders.</p>";
+    helpContent = helpContent + "<p>You can change the radius of circle from the slider.</p>";
+    helpContent = helpContent + "<p>Intially radius of circle is set to 1 and coressponding calculations have been done below to show as example.</p>";
+    helpContent = helpContent + "<p>Once you setup the experiment i.e select radius of your choice, you can enter the animation stage by clicking the start button.</p>";
+    helpContent = helpContent + "<h3>The animation stage</h3>";
+    helpContent = helpContent + "<p>In the animation stage, radius of the circle would increase as per the input of slider and one line will start rotating in the circle which denotes area covered by the circle.</p>";
+    helpContent = helpContent + "<p>The display panel below the input slider will show us the values of the areas by both formula and counting squares during animation.</p>";
+    helpContent = helpContent + "<p>You can pause and resume the animation by using the pause/play button on the top line.</p>";
+    helpContent = helpContent + "<p>As their is no such motion of objects in this animation, speed control buttons do not have any function here.</p>";
+    helpContent = helpContent + "<h3>To change radius again you can click stop on top line ,then change radius from slider on right and click start for new observations.</h3>";
+    helpContent = helpContent + "<h2>Happy Learning</h2>";
+    PIEupdateHelp(helpContent);
+}
+
+var infoContent;
+function initialiseInfo()
+{
+    infoContent =  "";
+    infoContent = infoContent + "<h2>Area of circle concepts</h2>";
+    infoContent = infoContent + "<h3>About the animation</h3>";
+    infoContent = infoContent + "<p>The animation shows a circle of radius r which is between 0 and 10.</p>";
+    infoContent = infoContent + "<h3>Area calculation by counting</h3>";
+    infoContent = infoContent + "<p>When an circle of radius r is drawn on a grid in which each square has area of 1 cm<sup>2</sup>.</p>";
+    infoContent = infoContent + "<p>The area of circle can be calculated using following rules.</p>";
+    infoContent = infoContent + "<ul>"
+	infoContent = infoContent + "<li>To calculate area of circle we will see number of squares filled by circle.</li>"
+	infoContent = infoContent + "<li>Ignore portions of the area that are less than half a square.</li>"
+	infoContent = infoContent + "<li>If more than half of a square is in a region, just count it as one square. </li>"
+	infoContent = infoContent + "<li>If exactly half the square is counted, take its area as 1/2sq unit.</li>"
+	infoContent = infoContent + "<li>In the end we sum all the above areas to find the area covered by circle.</li>"
+	infoContent = infoContent + "</ul>"
+    infoContent = infoContent + "<h3>Area calculation by formula <span> (&pi;r<sup>2</sup>)</span></h3>";
+    infoContent = infoContent + "<p>As we know the area we calculate are by using formula.</p>";
+    infoContent = infoContent + "<p>We observe that both areas are more or less same.</p>";
+    infoContent = infoContent + "<h3>We get the pratical idea of formula <span> (&pi;r<sup>2</sup>)</span> obtained area by this animation.</h3>";
+    infoContent = infoContent + "<h2>Happy Learning</h2>";
+    PIEupdateInfo(infoContent);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function loadExperimentElements()
 {
@@ -104,6 +174,9 @@ var path;
 PIEsetExperimentTitle("Area Of Circle");
 PIEsetDeveloperName("yuvraj singh tanwar"); 
 PIEhideControlElement();
+
+				initialiseHelp();
+				initialiseInfo();
 				initialiseScene();
 						
 						geometry = new THREE.BoxGeometry( mySceneW * 2, mySceneH * 2, wallThickness );
